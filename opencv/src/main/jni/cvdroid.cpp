@@ -96,7 +96,8 @@ JNIEXPORT jobject JNICALL Java_vip_frendy_opencv_OpenCVManager_toBW
 
     cvtColor(mbgra, dst, CV_BGR2GRAY);
 
-    threshold(dst,dst,0,255,THRESH_BINARY | THRESH_OTSU);
+    //threshold(dst,dst,0,255,THRESH_BINARY | THRESH_OTSU);
+    adaptiveThreshold(dst, dst, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 25, 13);
 
     //get source bitmap's config
     jclass java_bitmap_class = (jclass)env->FindClass("android/graphics/Bitmap");
