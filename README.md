@@ -2,7 +2,7 @@
 
 <br>
 
-### 相关 Makefile 简介
+### 1. 相关 Makefile 简介
 
 *  Application.mk
 
@@ -72,3 +72,18 @@ define add_opencv_module
     include $(PREBUILT_$(OPENCV_LIB_TYPE)_LIBRARY)
 endef
 ```
+
+<br>
+
+### 2. 扫描效果优化
+
+* 保证拍摄的图片清晰，避免变形操作
+
+* 无须额外做腐蚀和模糊处理，灰度后直接做自适应阈值化
+
+```
+    cvtColor(mbgra, dst, CV_BGR2GRAY);
+    adaptiveThreshold(dst, dst, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 25, 13);
+```
+
+* 后续可以适当加些锐化和明度增强之类的处理，可能效果会更好
