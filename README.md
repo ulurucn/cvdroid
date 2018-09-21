@@ -43,7 +43,7 @@ endif
 好了，前面已经设置 OPENCV_LIB_TYPE 为 STATIC，接下来看看具体模块的 include 过程：
 
 ```
-# 指定需要编译的模块
+# 指定需要编译的模块 ☜ ☜ ☜ 裁剪就是这里啦！！
 # OPENCV_MODULES:=shape ml dnn objdetect superres stitching videostab calib3d features2d highgui videoio imgcodecs video photo imgproc flann core
 OPENCV_MODULES:=imgproc core
 
